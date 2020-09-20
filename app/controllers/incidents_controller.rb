@@ -5,13 +5,12 @@ class IncidentsController < ApplicationController
   end
 
   def create
-    byebug
-    # @incident = Incident.new(incident_params)
-    # if @incident.save
-    #   render json: @incident, include: { cases: { methods: [:media_url] } }
-    # else
-    #   render json: { errors: @incident.errors.full_messages }
-    # end
+    @incident = Incident.new(incident_params)
+    if @incident.save
+      render json: @incident, include: { cases: { methods: [:media_url] } }
+    else
+      render json: { errors: @incident.errors.full_messages }
+    end
   end
 
   private
