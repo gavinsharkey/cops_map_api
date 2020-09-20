@@ -13,6 +13,6 @@ class Incident < ApplicationRecord
     lat = lat.to_f
     long = long.to_f
     radius = radius.to_f
-    self.where('POWER((incidents.latitude - ?), 2) + POWER((incidents.longitude - ?), 2) < POWER(?, 2)', lat, long, radius)
+    self.where('POWER((incidents.latitude - ?), 2) + POWER((incidents.longitude - ?), 2) < POWER(?, 2)', lat, long, radius).limit(25)
   end
 end
